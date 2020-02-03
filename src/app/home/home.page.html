@@ -18,16 +18,20 @@
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label>Time</ion-label>
-    <ion-input type="number" name="time" [(ngModel)]="time"></ion-input>
+    <ion-label>Time (hours)</ion-label>
+    <ion-select [(ngModel)]="time">
+      <ion-select-option *ngFor="let value of times">{{value}}</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Bottles</ion-label>
-    <ion-input type="number" min="0" max="50"[(ngModel)]="bottles"></ion-input>
+    <ion-select [(ngModel)]="bottle">
+      <ion-select-option *ngFor="let value of bottles">{{value}}</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Promilles</ion-label>
-    <ion-input name="promilles" value="{{ promilles | number : '1.0-2' }}" readonly></ion-input>
+    <ion-input name="promilles" min="0" value="{{ promilles | number : '1.0-2' }}" readonly></ion-input>
   </ion-item>
   <div>
     <ion-button (click)="calculate()">Calculate</ion-button>
